@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Leitor de Livro Simples</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header-gradient"></div>
+  <div class="top-bar">
+    <button id="dark-mode-toggle">🌙</button>
+    <span id="page-info"></span>
+    <input type="number" id="page-search" min="1" max="72" placeholder="Ir para página..." />
+    <button id="go-page">Ir</button>
+    <button id="start">Início</button>
+    <button id="end">Fim</button>
+  </div>
+  <!-- Introdução personalizada -->
+  <div class="study-intro" style="max-width:900px;margin:32px auto 24px auto;padding:18px 24px;background:#f6f2fa;border-radius:12px;color:#232323;font-size:1.15em;">
+    <h2 style="margin-top:0;">Como estudar de forma mais eficiente?</h2>
+    <p>
+      Estudar bem não é apenas ler: é transformar a leitura em compreensão ativa. Ao grifar trechos importantes, você foca no que realmente importa. Com anotações pessoais, dá significado ao conteúdo. E ao criar mapas conceituais, organiza visualmente as ideias e fortalece a memória.
+    </p>
+    <p>
+      Este site integra essas estratégias para ajudar você a aprender com mais clareza, autonomia e criatividade. Explore as páginas e monte seu próprio mapa visual do conhecimento.
+    </p>
+  </div>
+  <div class="container">
+    <button id="prev" aria-label="Página anterior">&lt;</button>
+    <div id="book">
+      <div class="page-container">
+        <img class="page-img" id="page-img-left" src="pages/livro_page-0001.jpg" alt="Página 1">
+        <img class="page-img" id="page-img-right" src="pages/livro_page-0002.jpg" alt="Página 2">
+      </div>
+    </div>
+    <button id="next" aria-label="Próxima página">&gt;</button>
+  </div>
+  <!-- Mapa Conceitual -->
+  <div class="concept-map-section">
+    <div class="concept-intro">
+      <h2>Mapa Conceitual</h2>
+      <p>
+        Digite palavras/frases grifadas do livro, adicione imagens pequenas se desejar, arraste para organizar. <br>
+        Clique em um bloco para editar, redimensionar ou excluir. Clique e arraste para ligar conceitos. <br>
+        Use o botão para baixar seu mapa como imagem e submeta-o no forms.
+      </p>
+    </div>
+    <form id="concept-form">
+      <input type="text" id="concept-input" placeholder="Digite palavra/frase grifada..." required>
+      <input type="number" id="concept-size" min="12" max="48" value="20" style="width:60px;" title="Tamanho da fonte">
+      <select id="concept-color" title="Cor do bloco">
+        <option value="#e9e6c9">Padrão</option>
+        <option value="#7c3a8a">Roxo</option>
+        <option value="#00a97a">Verde</option>
+        <option value="#fff">Branco</option>
+        <option value="#232323">Preto</option>
+        <option value="#f7f3e9">Bege</option>
+        <option value="#ffeb3b">Amarelo</option>
+        <option value="#2196f3">Azul</option>
+        <option value="#ff5722">Laranja</option>
+        <option value="#e91e63">Rosa</option>
+      </select>
+      <select id="concept-font" title="Fonte">
+        <option value="Georgia, serif">Georgia</option>
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="Verdana, sans-serif">Verdana</option>
+        <option value="'Courier New', monospace">Courier New</option>
+        <option value="'Comic Sans MS', cursive">Comic Sans</option>
+        <option value="'Times New Roman', serif">Times</option>
+      </select>
+      <label style="font-size:0.9em;">
+        <input type="checkbox" id="concept-outline"> Contorno
+      </label>
+      <input type="file" id="concept-img" accept="image/*" style="width:140px;">
+      <button type="submit">Adicionar</button>
+    </form>
+    <div id="concept-map">
+      <svg id="concept-svg" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;"></svg>
+    </div>
+    <div style="margin-top:16px;text-align:right;">
+      <button type="button" id="download-map">Baixar mapa</button>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSewfkKzbk3uJyJktMS4VXwNFcAzsedQaX5hvc_vZJ0URSY9Jg/viewform?usp=header" target="_blank" rel="noopener">
+        <button type="button" id="open-form" style="margin-left:8px;">Enviar para o formulário</button>
+      </a>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
